@@ -7,6 +7,8 @@ import {
   QRCodeErrorCorrectionLevel,
 } from "angularx-qrcode"
 
+type ListType = { title: string; val: number }[]
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -23,7 +25,7 @@ export class DashboardComponent {
     cssClass: "center",
     elementType: "canvas" as QRCodeElementType,
     errorCorrectionLevel: "M" as QRCodeErrorCorrectionLevel,
-    imageSrc: "./assets/logos/verit.png",
+    imageSrc: "./assets/logos/logo-dark.jpeg",
     imageHeight: 75,
     imageWidth: 75,
     margin: 4,
@@ -59,9 +61,9 @@ export class DashboardComponent {
 
   public selectedIndex: number
 
-  // public marginList: ListType
-  // public scaleList: ListType
-  // public widthList: ListType
+  public marginList: ListType
+  public scaleList: ListType
+  public widthList: ListType
 
   public showA11y: boolean
   public showColors: boolean
@@ -93,30 +95,30 @@ export class DashboardComponent {
     this.title = this.data_model.title
     this.width = this.data_model.width
 
-    // this.marginList = [
-    //   { title: "4 (Default)", val: 4 },
-    //   { title: "0", val: 0 },
-    //   { title: "10", val: 10 },
-    //   { title: "25", val: 25 },
-    // ]
+    this.marginList = [
+      { title: "4 (Default)", val: 4 },
+      { title: "0", val: 0 },
+      { title: "10", val: 10 },
+      { title: "25", val: 25 },
+    ]
 
-    // this.scaleList = [
-    //   { title: "128", val: 128 },
-    //   { title: "64", val: 64 },
-    //   { title: "32", val: 32 },
-    //   { title: "8", val: 8 },
-    //   { title: "4", val: 4 },
-    //   { title: "1 (Default)", val: 1 },
-    // ]
+    this.scaleList = [
+      { title: "128", val: 128 },
+      { title: "64", val: 64 },
+      { title: "32", val: 32 },
+      { title: "8", val: 8 },
+      { title: "4", val: 4 },
+      { title: "1 (Default)", val: 1 },
+    ]
 
-    // this.widthList = [
-    //   { title: "400", val: 400 },
-    //   { title: "300", val: 300 },
-    //   { title: "200", val: 200 },
-    //   { title: "100", val: 100 },
-    //   { title: "50", val: 50 },
-    //   { title: "10 (Default)", val: 10 },
-    // ]
+    this.widthList = [
+      { title: "400", val: 400 },
+      { title: "300", val: 300 },
+      { title: "200", val: 200 },
+      { title: "100", val: 100 },
+      { title: "50", val: 50 },
+      { title: "10 (Default)", val: 10 },
+    ]
   }
 
   // Change value programatically
@@ -336,14 +338,6 @@ export class DashboardComponent {
   }
 
   get renderSampleCssCode() {
-    return `/* Put this code in your CSS file */
-/* The div container */
-.qrcodeImage {
-  display: flex;
-  flex: 1;
-}
-/* Add custom styles here */
-${this.cssCodeBuilder()}
-`
+    return `${this.cssCodeBuilder()}`
   }
 }
