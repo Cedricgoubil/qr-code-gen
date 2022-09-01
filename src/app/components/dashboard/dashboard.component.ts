@@ -112,6 +112,7 @@ export class DashboardComponent {
     ]
 
     this.widthList = [
+      { title: "500", val: 500 },
       { title: "400", val: 400 },
       { title: "300", val: 300 },
       { title: "200", val: 200 },
